@@ -42,6 +42,19 @@
             </feature>
         </config-file>
 
+	<config-file parent="NSLocationAlwaysAndWhenInUseUsageDescription" target="*-Info.plist" mode="merge">
+        <string>O app utiliza rastreamento de localização em segundo plano para gravar a atividade, mesmo que o app não esteja visível na tela. Sempre é necessário usar o rastreamento de localização em segundo plano (Always is necessary).</string>
+        </config-file>
+        <config-file parent="NSLocationAlwaysUsageDescription" target="*-Info.plist" mode="merge">
+            <string>O rastreamento de localização em segundo plano é utilizado para registrar o trajeto de seu pedal.</string>
+        </config-file>
+        <config-file parent="NSLocationWhenInUseUsageDescription" target="*-Info.plist" mode="merge">
+            <string>O rastreamento de localização em segundo plano é utilizado para registrar o trajeto de seu pedal.</string>
+        </config-file>
+        <config-file parent="NSMotionUsageDescription" target="*-Info.plist" mode="merge">
+            <string>O uso do acelerômetro aumenta a eficiência da bateria ao alternar de maneira inteligente o rastreamento de localização somente quando o dispositivo é detectado como em movimento.</string>
+        </config-file>
+
 	<framework src="CocoaLumberjack" type="podspec" spec="~> 3.5.0" />
         <framework src="AudioToolbox.framework" weak="true" />
         <framework src="SystemConfiguration.framework" weak="true" />
@@ -78,6 +91,14 @@
             <feature name="BackgroundGeolocation">
                 <param name="android-package" value="com.transistorsoft.cordova.bggeo.CDVBackgroundGeolocation"/>
             </feature>
+        </config-file>
+
+	<config-file parent="/manifest/application" target="app/src/main/AndroidManifest.xml">
+          <meta-data
+            android:name="com.transistorsoft.locationmanager.license_key"
+            android:value="ccff015c1257d933f7bfc4c16f17be7a689f3c7e597cdaf1ed2e66e8463136ed" />
+	  <service android:name="com.transistorsoft.locationmanager.service.TrackingService" android:foregroundServiceType="location" />
++         <service android:name="com.transistorsoft.locationmanager.service.LocationRequestService" android:foregroundServiceType="location" />
         </config-file>
      </platform>
 
