@@ -96,7 +96,7 @@
 	<config-file parent="/manifest/application" target="app/src/main/AndroidManifest.xml">
           <meta-data
             android:name="com.transistorsoft.locationmanager.license_key"
-            android:value="ccff015c1257d933f7bfc4c16f17be7a689f3c7e597cdaf1ed2e66e8463136ed" />
+            android:value="cd3413a20d6c398a08fbc21fa53fbb25adf8502cdd6e38c568045147e7f6c48c" />
 	  <service android:name="com.transistorsoft.locationmanager.service.TrackingService" android:foregroundServiceType="location" />
 +         <service android:name="com.transistorsoft.locationmanager.service.LocationRequestService" android:foregroundServiceType="location" />
         </config-file>
